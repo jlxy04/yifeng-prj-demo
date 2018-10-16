@@ -1,4 +1,4 @@
-package com.yifeng.ecp.channel;
+package com.yifeng.demo;
 
 import com.talkyun.openx.RestfulServiceFactory;
 
