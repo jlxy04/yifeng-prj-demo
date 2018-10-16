@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.yifeng.ecp</groupId>
+        <artifactId>ecp-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>demo</artifactId>
+    <version>1.4.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <openx-conf.version>1.1.0</openx-conf.version>
+        <commons-pool2.version>2.4.2</commons-pool2.version>
+        <okhttp3.version>3.6.0</okhttp3.version>
+
+        <log4j.version>1.2.17</log4j.version>
+        <maven.source.version>2.4</maven.source.version>
+        <ecp-common.version>1.0.1-SNAPSHOT</ecp-common.version>
+        <yifeng-util.verion>1.0.1-SNAPSHOT</yifeng-util.verion>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons-pool2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.talkyun.zeus</groupId>
+                <artifactId>openx-server</artifactId>
+                <version>${openx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.talkyun.zeus</groupId>
+                <artifactId>openx-client</artifactId>
+                <version>${openx.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.talkyun.zeus</groupId>
+                <artifactId>openx-service-conf-client</artifactId>
+                <version>${openx-conf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.yifeng.ecp</groupId>
+                <artifactId>ecp-common</artifactId>
+                <version>${ecp-common.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!--<plugin>-->
+            <!--<groupId>org.apache.tomcat.maven</groupId>-->
+            <!--<artifactId>tomcat7-maven-plugin</artifactId>-->
+            <!--</plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.7</source> <!-- or 1.7 or 1.8, .. -->
+                    <target>1.7</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <url>http://192.168.7.38:8080/manager/text</url>
+                    <path>/</path>
+                    <server>tomcat-remote</server>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven.source.version}</version>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <modules>
+        <module>demo-api</module>
+        <module>demo-dal</module>
+        <module>demo-service</module>
+        <module>demo-sdk</module>
+        <module>demo-web</module>
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>TalkYun</id>
+            <name>TalkYun Nexus Repository</name>
+            <url>http://nexus.yifengx.com/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>TalkYun2</id>
+            <name>TalkYun Nexus Repository</name>
+            <url>http://nexus.yifengx.com/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>talkyun-snapshot</id>
+            <name>TalkYun Nexus Snapshot</name>
+            <url>http://nexus.yifengx.com/content/repositories/snapshots/</url>
+            <uniqueVersion>true</uniqueVersion>
+        </snapshotRepository>
+        <repository>
+            <id>talkyun-release</id>
+            <name>TalkYun Nexus Release</name>
+            <url>http://nexus.yifengx.com/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+</project>

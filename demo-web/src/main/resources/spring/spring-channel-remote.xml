@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="openx.AbstractInterceptor" abstract="true"
+		class="com.talkyun.openx.server.core.AbstractInterceptor">
+		<property name="matchPattern">
+			<list>
+				<value>*.*</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean class="com.talkyun.openx.RestfulScanner">
+		<property name="interceptor">
+			<list>
+				<bean class="com.talkyun.openx.interceptor.PerformanceInterceptor" parent="openx.AbstractInterceptor">
+					<property name="threshold" value="999" />
+				</bean>
+				<!-- 日志中心 -->
+				<bean class="next.platform.wall.log.TraceInterceptor" parent="openx.AbstractInterceptor" />
+			</list>
+		</property>
+		<property name="path" value="com.yifeng.ecp.channel.*" />
+	</bean>
+
+</beans>
