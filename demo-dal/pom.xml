@@ -12,10 +12,10 @@
 
 	<dependencies>
 		<dependency>
-            <groupId>next.platform</groupId>
+			<groupId>next.platform</groupId>
             <artifactId>framework-dal</artifactId>
             <version>${next-framework.version}</version>
-        </dependency>
+		</dependency>
 	</dependencies>
 
 	<build>
