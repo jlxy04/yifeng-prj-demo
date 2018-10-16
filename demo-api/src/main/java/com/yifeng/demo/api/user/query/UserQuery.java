@@ -20,7 +20,7 @@ public class UserQuery {
 	/**
 	 * 生日结束时间
 	 */
-	private String ednBirthday;
+	private String endBirthday;
 
 	public String getName() {
 		return name;
@@ -38,11 +38,11 @@ public class UserQuery {
 		this.startBirthday = startBirthday;
 	}
 
-	public String getEdnBirthday() {
-		return ednBirthday;
+	public String getEndBirthday() {
+		return endBirthday;
 	}
 
-	public void setEdnBirthday(String ednBirthday) {
-		this.ednBirthday = ednBirthday;
+	public void setEndBirthday(String endBirthday) {
+		this.endBirthday = endBirthday;
 	}
 }
