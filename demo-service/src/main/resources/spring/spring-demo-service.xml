@@ -15,6 +15,6 @@
     	<property name="ossUrl" value="$X{oss.url}" />
     </bean>
     
-    <context:component-scan base-package="com.yifeng.demo.*" />
+    <context:component-scan base-package="com.yifeng.demo.boss.*" />
     
 </beans>

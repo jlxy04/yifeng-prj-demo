@@ -28,6 +28,13 @@
             <artifactId>rapid-core</artifactId>
             <version>${rapid-core.version}</version>
         </dependency>
+        
+        <!-- 版本冲突，需要覆盖rapid-core中1.1.1的版本 -->
+        <dependency>
+    		 <groupId>next.platform</groupId>
+    		 <artifactId>fire-log-client</artifactId>
+        	<version>1.1.4</version>
+    	</dependency>
 	</dependencies>
 
 </project>

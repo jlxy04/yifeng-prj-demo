@@ -14,17 +14,17 @@
         id, user_code, age, sex, birthday
     </sql>
 	
-	<select id="selectByPage" parameterType="com.yifeng.demo.boss.dal.user.query.UserQuery">
+	<select id="selectByPage" parameterType="com.yifeng.demo.boss.dal.user.query.UserQuery" resultMap="BaseResultMap">
 		select <include refid="base_column"/> FROM demo_user
 		<where>
 			<if test="name != null and name != ''">
-				name = #{name,jdbcType=VARCHAR},
+				and name = #{name,jdbcType=VARCHAR}
 			</if>
 			<if test="startBirthday != null">
-				birthday &gt;= #{startBirthday,jdbcType=TIMESTAMP},
+				and birthday &gt;= #{startBirthday,jdbcType=TIMESTAMP}
 			</if>
 			<if test="startBirthday != null">
-				birthday &lt;= #{startBirthday,jdbcType=TIMESTAMP},
+				and birthday &lt;= #{startBirthday,jdbcType=TIMESTAMP}
 			</if>
 		</where>
 	</select>

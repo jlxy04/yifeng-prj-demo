@@ -18,23 +18,23 @@
         id, order_code, channel_code, warehouse_code, status, need_receive_amount, customer_need_pay_amount, goods_total_amount, create_time
     </sql>
 	
-	<select id="selectByPage" parameterType="com.yifeng.demo.boss.dal.order.query.OrderQuery">
+	<select id="selectByPage" parameterType="com.yifeng.demo.boss.dal.order.query.OrderQuery" resultMap="BaseResultMap">
 		select <include refid="base_column"/> FROM demo_order
 		<where>
 			<if test="orderCode != null and orderCode != ''">
-				order_code = #{orderCode,jdbcType=VARCHAR},
+				and order_code = #{orderCode,jdbcType=VARCHAR}
 			</if>
 			<if test="channelCodes != null">
-				channel_code in
+				and channel_code in
 				<foreach collection="channelCodes" open="(" close=")" separator="," item="item">
 					#{item}
 				</foreach>
 			</if>
 			<if test="startCrateTime != null">
-				create_time &lt;= #{startCrateTime,jdbcType=TIMESTAMP},
+				and create_time &lt;= #{startCrateTime,jdbcType=TIMESTAMP}
 			</if>
 			<if test="endCreateTime != null">
-				create_time &gt;= #{startBirthday,jdbcType=TIMESTAMP},
+				and create_time &gt;= #{startBirthday,jdbcType=TIMESTAMP}
 			</if>
 		</where>
 	</select>

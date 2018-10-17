@@ -5,8 +5,6 @@ package com.yifeng.demo.boss.api.user.model;
 
 import java.util.Date;
 
-import com.yifeng.demo.boss.api.user.enums.SexEnum;
-
 /**
  * 用户相关Model
  * @author Administrator
@@ -37,7 +35,7 @@ public class UserModel {
 	/**
 	 * 性别
 	 */
-	private SexEnum sex;
+	private String sex;
 	
 	/**
 	 * 生日
@@ -50,14 +48,6 @@ public class UserModel {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public SexEnum getSex() {
-		return sex;
-	}
-
-	public void setSex(SexEnum sex) {
-		this.sex = sex;
 	}
 
 	public String getId() {
@@ -90,5 +80,13 @@ public class UserModel {
 
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
 }
