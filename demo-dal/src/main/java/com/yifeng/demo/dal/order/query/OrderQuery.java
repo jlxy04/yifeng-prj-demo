@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.yifeng.demo.user.dal.order.query;
+package com.yifeng.demo.dal.order.query;
 
 import java.util.List;
 

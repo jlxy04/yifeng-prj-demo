@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.yifeng.demo.user.dal.user.data;
+package com.yifeng.demo.dal.user.data;
 
 /**
  * @author Administrator

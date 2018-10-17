@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.yifeng.demo.user.dal.order.entity;
+package com.yifeng.demo.dal.order.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;

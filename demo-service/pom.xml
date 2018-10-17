@@ -23,6 +23,13 @@
 			<version>${project.version}</version>
 		</dependency>
 		
+		<dependency>
+            <groupId>next.platform</groupId>
+            <artifactId>rapid-core</artifactId>
+            <version>${rapid-core.version}</version>
+        </dependency>
+		
+		
 	</dependencies>
 
 </project>

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.yifeng.demo.user.dal.user.query;
+package com.yifeng.demo.dal.user.query;
 
 import java.util.Date;
 

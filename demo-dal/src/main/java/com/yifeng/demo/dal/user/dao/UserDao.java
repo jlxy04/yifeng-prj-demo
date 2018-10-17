@@ -1,12 +1,12 @@
-package com.yifeng.demo.user.dal.user.dao;
+package com.yifeng.demo.dal.user.dao;
 
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.yifeng.demo.user.dal.user.entity.UserEntity;
-import com.yifeng.demo.user.dal.user.query.UserQuery;
+import com.yifeng.demo.dal.user.entity.UserEntity;
+import com.yifeng.demo.dal.user.query.UserQuery;
 
 /**
  * 用户DAO

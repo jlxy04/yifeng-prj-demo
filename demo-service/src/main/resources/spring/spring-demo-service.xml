@@ -5,25 +5,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <context:component-scan base-package="com.yifeng.ecp.*" />
-
-
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!-- registered mapper interface -->
-        <property name="basePackage" value="com/yifeng/ecp/channel/dal/dao" />
-        <property name="sqlSessionFactoryBeanName" value="channel.SqlSessionFactory" />
+    <bean class="next.fire.conf.spring.OpenxPlaceholderHandler">
+    	<property name="confCenterUrl" value="https://next.yifengx.com/conf/"/>
     </bean>
 
-    <bean id="requestFactory" class="org.springframework.http.client.SimpleClientHttpRequestFactory">
-        <property name="readTimeout" value="3000"/>
-        <property name="connectTimeout" value="3000"/>
+    <bean class="com.yifeng.demo.conf.PropertyConfig">
+    	<property name="ossAppId" value="$X{oss.appid}" />
+    	<property name="ossUploadPath" value="$X{oss.upload.path}" />
+    	<property name="ossUrl" value="$X{oss.url}" />
     </bean>
-
-     <bean class="com.talkyun.conf.spring.OpenxPlaceholderHandler"/>
-
-    <bean class="com.yifeng.ecp.channel.service.core.ChannelPropertyConfig">
-        <property name="geoUrl" value="$X{geo.url}" />
-        <property name="lbsQueryDetailByCodeUrl" value="$X{lbs.queryDetailByCode.url}" />
-    </bean>
-
+    
+    <context:component-scan base-package="com.yifeng.demo.*" />
+    
 </beans>

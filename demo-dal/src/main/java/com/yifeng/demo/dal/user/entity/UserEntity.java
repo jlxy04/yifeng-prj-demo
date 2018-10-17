@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.yifeng.demo.user.dal.user.entity;
+package com.yifeng.demo.dal.user.entity;
 
 import java.util.Date;
 

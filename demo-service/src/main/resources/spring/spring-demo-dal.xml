@@ -6,13 +6,8 @@
 
                            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- real conf file
-	<context:property-placeholder location="classpath*:conf/yifeng.channel.properties" /> -->
-
-
-	<!-- orm -->
-	<bean id="channel.DataSource" class="com.alibaba.druid.pool.DruidDataSource"
-		  init-method="init" destroy-method="close">
+	<bean id="project.DataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
 		<property name="url" value="$X{jdbc.url}" />
 		<property name="username" value="$X{jdbc.user}" />
 		<property name="password" value="$X{jdbc.password}" />
@@ -29,36 +24,46 @@
 		<property name="testWhileIdle" value="true" />
 		<property name="testOnBorrow" value="false" />
 		<property name="testOnReturn" value="false" />
+	</bean>
 
-		<!-- log sql -->
-		<property name="proxyFilters">
+	<bean id="project.SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="project.DataSource" />
+		<!-- check mybatis resultMap or resultType -->
+		<property name="failFast" value="true"/>
+		<property name="configLocation" value="classpath:spring/mybatis-configuration.xml" />
+		<!-- 避免填写继承自BaseEntity类的包名-->
+		<property name="typeAliasesPackage" value="com.yifeng.ecp.boss.dal.entity"/>
+		<property name="mapperLocations">
 			<list>
-				<bean class="com.alibaba.druid.filter.logging.Log4jFilter">
-					<property name="connectionConnectAfterLogEnabled" value="false"/>
-					<property name="statementCreateAfterLogEnabled" value="false"/>
-					<property name="statementExecutableSqlLogEnable" value="true"/>
-					<property name="connectionConnectBeforeLogEnabled" value="false"/>
-					<property name="resultSetLogEnabled" value="false"/>
-					<property name="connectionLogEnabled" value="false"/>
-					<property name="statementParameterSetLogEnabled" value="false"/>
+				<value>classpath*:com/yifeng/demo/*/dal/dao/*.xml</value>
+			</list>
+		</property>
+
+		<property name="plugins">
+			<list>
+				<bean class="com.github.pagehelper.PageInterceptor">
+					<property name="properties">
+						<props>
+							<prop key="helperDialect">mysql</prop>
+							<prop key="reasonable">true</prop>
+						</props>
+					</property>
 				</bean>
 			</list>
 		</property>
 
 	</bean>
 
-	<bean id="channel.SqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="channel.DataSource" />
-		<property name="mapperLocations">
-			<list>
-				<value>classpath*:com/yifeng/ecp/channel/dal/dao/*.xml</value>
-			</list>
-		</property>
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- registered mapper interface -->
+		<property name="basePackage" value="com/yifeng/colombo/rest/dal/dao" />
+		<property name="sqlSessionFactoryBeanName" value="project.SqlSessionFactory" />
 	</bean>
 
-	<bean id="channel.TransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="channel.DataSource" />
+	<bean id="project.TransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="project.DataSource" />
 	</bean>
 
-	<tx:annotation-driven transaction-manager="channel.TransactionManager" />
+	<tx:annotation-driven transaction-manager="project.TransactionManager" />
 </beans>

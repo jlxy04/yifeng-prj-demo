@@ -1,12 +1,12 @@
-package com.yifeng.demo.user.dal.order.dao;
+package com.yifeng.demo.dal.order.dao;
 
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.yifeng.demo.user.dal.order.entity.OrderEntity;
-import com.yifeng.demo.user.dal.order.query.OrderQuery;
+import com.yifeng.demo.dal.order.entity.OrderEntity;
+import com.yifeng.demo.dal.order.query.OrderQuery;
 
 /**
  * 用户DAO
