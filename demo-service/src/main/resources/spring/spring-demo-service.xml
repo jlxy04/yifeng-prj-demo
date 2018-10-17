@@ -9,7 +9,7 @@
     	<property name="confCenterUrl" value="https://next.yifengx.com/conf/"/>
     </bean>
 
-    <bean class="com.yifeng.demo.conf.PropertyConfig">
+    <bean class="com.yifeng.demo.boss.conf.PropertyConfig">
     	<property name="ossAppId" value="$X{oss.appid}" />
     	<property name="ossUploadPath" value="$X{oss.upload.path}" />
     	<property name="ossUrl" value="$X{oss.url}" />
