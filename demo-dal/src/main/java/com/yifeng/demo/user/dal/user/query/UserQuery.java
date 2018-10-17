@@ -3,6 +3,8 @@
  */
 package com.yifeng.demo.user.dal.user.query;
 
+import java.util.Date;
+
 /**
  * 用户的查询对象
  * @author Administrator
@@ -18,12 +20,12 @@ public class UserQuery {
 	/**
 	 * 生日开始时间
 	 */
-	private String startBirthday;
+	private Date startBirthday;
 	
 	/**
 	 * 生日结束时间
 	 */
-	private String endBirthday;
+	private Date endBirthday;
 
 	public String getName() {
 		return name;
@@ -33,19 +35,19 @@ public class UserQuery {
 		this.name = name;
 	}
 
-	public String getStartBirthday() {
+	public Date getStartBirthday() {
 		return startBirthday;
 	}
 
-	public void setStartBirthday(String startBirthday) {
+	public void setStartBirthday(Date startBirthday) {
 		this.startBirthday = startBirthday;
 	}
 
-	public String getEndBirthday() {
+	public Date getEndBirthday() {
 		return endBirthday;
 	}
 
-	public void setEndBirthday(String endBirthday) {
+	public void setEndBirthday(Date endBirthday) {
 		this.endBirthday = endBirthday;
 	}
 }

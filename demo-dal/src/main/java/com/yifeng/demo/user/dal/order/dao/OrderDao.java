@@ -1,47 +1,47 @@
-package com.yifeng.demo.user.dal.user.dao;
+package com.yifeng.demo.user.dal.order.dao;
 
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.yifeng.demo.user.dal.user.entity.UserEntity;
-import com.yifeng.demo.user.dal.user.query.UserQuery;
+import com.yifeng.demo.user.dal.order.entity.OrderEntity;
+import com.yifeng.demo.user.dal.order.query.OrderQuery;
 
 /**
  * 用户DAO
  * @author Administrator
  *
  */
-public interface UserDao {
+public interface OrderDao {
 	
 	/**
 	 * 根据条件分页查询
 	 * @param userQuery
 	 * @return
 	 */
-	List<UserEntity> selectByPage(UserQuery userQuery);
+	List<OrderEntity> selectByPage(OrderQuery orderQuery);
 	
 	/**
 	 * 根据主键查询
 	 * @param id
 	 * @return
 	 */
-    UserEntity selectById(@Param("id")String id);
+	OrderEntity selectById(@Param("id")String id);
     
     /**
      * 插入
      * @param userEntity
      * @return
      */
-    int insert(UserEntity userEntity);
+    int insert(OrderEntity userEntity);
     
     /**
      * 根据主键更新
      * @param userEntity
      * @return
      */
-    int updateById(UserEntity userEntity);
+    int updateById(OrderEntity userEntity);
     
     /**
      * 根据ID删除用户
