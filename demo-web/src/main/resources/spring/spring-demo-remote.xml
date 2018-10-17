@@ -19,10 +19,11 @@
 					<property name="threshold" value="999" />
 				</bean>
 				<!-- 日志中心 -->
-				<bean class="next.platform.wall.log.TraceInterceptor" parent="openx.AbstractInterceptor" />
+				<bean class="next.fire.log.client.TraceInterceptor" parent="openx.AbstractInterceptor" />
 			</list>
 		</property>
-		<property name="path" value="com.yifeng.ecp.channel.*" />
+		<!-- 扫描路径 -->
+		<property name="path" value="com.yifeng.demo.boss.api.*.service.*" />
 	</bean>
 
 </beans>

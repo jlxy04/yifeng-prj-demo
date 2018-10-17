@@ -28,8 +28,6 @@
             <artifactId>rapid-core</artifactId>
             <version>${rapid-core.version}</version>
         </dependency>
-		
-		
 	</dependencies>
 
 </project>

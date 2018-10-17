@@ -118,29 +118,52 @@
     </modules>
 
     <repositories>
+
         <repository>
             <id>TalkYun</id>
             <name>TalkYun Nexus Repository</name>
             <url>http://nexus.yifengx.com/content/repositories/releases/</url>
         </repository>
+
         <repository>
             <id>TalkYun2</id>
             <name>TalkYun Nexus Repository</name>
             <url>http://nexus.yifengx.com/content/repositories/snapshots/</url>
         </repository>
+        
+		<repository>
+            <id>talkyun-release</id>
+            <name>Talkyun Nexus Release</name>
+            <url>https://maven.talkyun.com/nexus/content/repositories/releases/</url>
+        </repository>
+        
+        <repository>
+            <id>talkyun-snapshot</id>
+            <name>Talkyun Nexus Snapshot</name>
+            <url>https://maven.talkyun.com/nexus/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </repository>
+		
     </repositories>
 
     <distributionManagement>
+
         <snapshotRepository>
-            <id>talkyun-snapshot</id>
+            <id>yifengx-snapshot</id>
             <name>TalkYun Nexus Snapshot</name>
             <url>http://nexus.yifengx.com/content/repositories/snapshots/</url>
             <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
+
         <repository>
-            <id>talkyun-release</id>
+            <id>yifengx-release</id>
             <name>TalkYun Nexus Release</name>
             <url>http://nexus.yifengx.com/content/repositories/releases/</url>
         </repository>
+
     </distributionManagement>
 </project>

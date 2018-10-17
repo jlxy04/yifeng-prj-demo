@@ -11,6 +11,10 @@
 	<packaging>jar</packaging>
 
 	<dependencies>
-		
+		<dependency>
+            <groupId>next.platform</groupId>
+            <artifactId>next-rapid-api</artifactId>
+            <version>${rapid-core.version}</version>
+        </dependency>
 	</dependencies>
 </project>
