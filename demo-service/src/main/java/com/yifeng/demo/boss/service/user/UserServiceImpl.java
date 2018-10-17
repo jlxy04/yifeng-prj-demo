@@ -2,11 +2,13 @@ package com.yifeng.demo.boss.service.user;
 
 import com.yifeng.demo.boss.api.user.service.UserService;
 
+import next.rapid.RapidService;
+
 /**
  * 用户相关服务的实现
  * @author Administrator
  *
  */
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends RapidService implements UserService {
 
 }
