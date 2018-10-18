@@ -1,29 +1,24 @@
 /**
  * 
  */
-package com.yifeng.demo.boss.dal.order.entity;
+package com.yifeng.demo.boss.api.order.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * 订单实体类
+ * 订单model
  * @author Administrator
  *
  */
-public class OrderEntity {
-	
-	private String id;
+public class OrderModel {
+
+private String id;
 	
 	/**
 	 * 订单编码
 	 */
 	private String orderCode;
-	
-	/**
-	 * 用户编码
-	 */
-	private String userId;
 	
 	/**
 	 * 渠道编码
@@ -59,14 +54,6 @@ public class OrderEntity {
 	 * 创建时间
 	 */
 	private Date createTime;
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
 
 	public String getId() {
 		return id;

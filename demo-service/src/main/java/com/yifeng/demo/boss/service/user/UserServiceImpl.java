@@ -13,6 +13,7 @@ import com.yifeng.demo.boss.api.user.service.UserService;
 import com.yifeng.demo.boss.dal.user.dao.UserDao;
 import com.yifeng.demo.boss.dal.user.entity.UserEntity;
 
+import next.framework.mybatis.utils.ObjectId;
 import next.rapid.RapidService;
 import next.rapid.page.Pagination;
 
@@ -37,5 +38,11 @@ public class UserServiceImpl extends RapidService implements UserService {
 	@Override
 	public UserModel getUserById(String id) {
 		return copy(userDao.selectById(id), UserModel.class);
+	}
+	
+	@Override
+	public void createUser(UserModel userModel) {
+		userModel.setId(ObjectId.get().toString());
+		userDao.insert(copy(userModel, UserEntity.class));
 	}
 }

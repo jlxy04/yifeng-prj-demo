@@ -11,6 +11,7 @@ CREATE TABLE `demo_user` (
 CREATE TABLE `demo_order` (
   `id` varchar(40) NOT NULL COMMENT '主键',
   `order_code` varchar(40) NOT NULL COMMENT '订单编码',
+  `user_code` varchar(40) NOT NULL COMMENT '用户ID',
   `channel_code` varchar(20) NOT NULL COMMENT '渠道编码',
   `warehouse_code` varchar(20) NOT NULL COMMENT '仓库编码',
   `status` varchar(10) NOT NULL COMMENT '状态',

@@ -5,6 +5,7 @@
     <resultMap id="BaseResultMap" type="com.yifeng.demo.boss.dal.order.entity.OrderEntity">
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <result column="order_code" property="orderCode" jdbcType="VARCHAR"/>
+        <result column="user_id" property="userId" jdbcType="VARCHAR"/>
         <result column="channel_code" property="channelCode" jdbcType="VARCHAR"/>
         <result column="warehouse_code" property="warehouseCode" jdbcType="VARCHAR"/>
         <result column="status" property="status" jdbcType="VARCHAR"/>
@@ -13,13 +14,21 @@
         <result column="goods_total_amount" property="goodsTotalAmount" jdbcType="DECIMAL"/>
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
     </resultMap>
-
+	
+	<resultMap id="pageResultMap" type="com.yifeng.demo.boss.dal.order.data.OrderDataDo" extends="BaseResultMap">
+		<result column="user_name" property="userName" jdbcType="VARCHAR"/>
+	</resultMap>
+	
     <sql id="base_column">
-        id, order_code, channel_code, warehouse_code, status, need_receive_amount, customer_need_pay_amount, goods_total_amount, create_time
+        id, order_code, user_id, channel_code, warehouse_code, status, need_receive_amount, customer_need_pay_amount, goods_total_amount, create_time
+    </sql>
+    
+    <sql id="page_column">
+        a.id, a.order_code, a.user_id, a.channel_code, a.warehouse_code, a.status, a.need_receive_amount, a.customer_need_pay_amount, a.goods_total_amount, a.create_time
     </sql>
 	
-	<select id="selectByPage" parameterType="com.yifeng.demo.boss.dal.order.query.OrderQuery" resultMap="BaseResultMap">
-		select <include refid="base_column"/> FROM demo_order
+	<select id="selectByPage" parameterType="com.yifeng.demo.boss.dal.order.query.OrderQuery" resultMap="pageResultMap">
+		select <include refid="page_column"/>, b.name as user_name FROM demo_order a left join demo_user b on a.user_id = b.id
 		<where>
 			<if test="orderCode != null and orderCode != ''">
 				and order_code = #{orderCode,jdbcType=VARCHAR}

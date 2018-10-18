@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.yifeng.demo.boss.dal.order.data.OrderDataDo;
 import com.yifeng.demo.boss.dal.order.entity.OrderEntity;
 import com.yifeng.demo.boss.dal.order.query.OrderQuery;
 
@@ -20,7 +21,7 @@ public interface OrderDao {
 	 * @param userQuery
 	 * @return
 	 */
-	List<OrderEntity> selectByPage(OrderQuery orderQuery);
+	List<OrderDataDo> selectByPage(OrderQuery orderQuery);
 	
 	/**
 	 * 根据主键查询

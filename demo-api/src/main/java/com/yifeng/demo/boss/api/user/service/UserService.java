@@ -31,4 +31,11 @@ public interface UserService {
 	 * @return 返回用户详情
 	 */
 	public UserModel getUserById(String id);
+	
+	/**
+	 * 创建用户
+	 * @param userModel 用户信息
+	 * @return
+	 */
+	public void createUser(UserModel userModel);
 }

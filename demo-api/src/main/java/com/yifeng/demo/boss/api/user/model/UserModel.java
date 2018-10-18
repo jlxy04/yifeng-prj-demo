@@ -18,11 +18,6 @@ public class UserModel {
 	private String id;
 	
 	/**
-	 * 用户编码
-	 */
-	private String userCode;
-	
-	/**
 	 * 名称
 	 */
 	private String name;
@@ -56,14 +51,6 @@ public class UserModel {
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public String getUserCode() {
-		return userCode;
-	}
-
-	public void setUserCode(String userCode) {
-		this.userCode = userCode;
 	}
 
 	public Integer getAge() {
