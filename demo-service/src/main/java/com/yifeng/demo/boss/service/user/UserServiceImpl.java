@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -41,6 +42,7 @@ public class UserServiceImpl extends RapidService implements UserService {
 	}
 	
 	@Override
+	@Transactional(rollbackFor= {Exception.class})
 	public void createUser(UserModel userModel) {
 		userModel.setId(ObjectId.get().toString());
 		userDao.insert(copy(userModel, UserEntity.class));
