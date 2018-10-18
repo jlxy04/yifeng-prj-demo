@@ -18,7 +18,7 @@ public interface OrderDao {
 	
 	/**
 	 * 根据条件分页查询
-	 * @param userQuery
+	 * @param orderQuery 分页查询条件
 	 * @return
 	 */
 	List<OrderDataDo> selectByPage(OrderQuery orderQuery);

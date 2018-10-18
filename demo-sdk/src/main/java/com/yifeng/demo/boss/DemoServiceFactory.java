@@ -13,7 +13,9 @@ import com.talkyun.openx.RestfulServiceFactory;
 public class DemoServiceFactory {
     private static RestfulServiceFactory rsf;
 
-    // 私有构造方法
+    /**
+     * 单例，私有构造方法
+     */
     private DemoServiceFactory() {
 
     }
@@ -50,7 +52,9 @@ public class DemoServiceFactory {
         }
     }
 
-    // 指定服务提供方URL地址
+    /**
+     * 指定服务提供方URL地址
+     */
     public static void confUrl(String url) {
         if (url == null) {
             throw new RuntimeException("invoke url is null");
@@ -58,7 +62,9 @@ public class DemoServiceFactory {
         SingletonLazyHolder.confUrl(url);
     }
 
-    // 获取工厂单例
+    /**
+     * 获取工厂单例
+     */
     public static DemoServiceFactory getInstance() {
 
         rsf = SingletonLazyHolder.getRsfInstance();

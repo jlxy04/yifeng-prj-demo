@@ -10,7 +10,15 @@ package com.yifeng.demo.boss.api.user.enums;
  */
 public enum SexEnum {
 	
-	MEN("男"),  WOMEN("女");
+	/**
+	 * 男
+	 */
+	MEN("男"),  
+	
+	/**
+	 * 女
+	 */
+	WOMEN("女");
 	
 	private String desc;
 
