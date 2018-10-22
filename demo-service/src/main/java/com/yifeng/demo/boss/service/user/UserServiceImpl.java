@@ -1,9 +1,12 @@
 package com.yifeng.demo.boss.service.user;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.yifeng.demo.boss.api.user.model.UserModel;
@@ -25,6 +28,8 @@ import next.rapid.page.Pagination;
  */
 @Service("/boss/userService")
 public class UserServiceImpl extends RapidService implements UserService {
+	
+	private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 	
 	@Autowired
 	private UserDao userDao;
@@ -51,6 +56,7 @@ public class UserServiceImpl extends RapidService implements UserService {
 	@Override
 	@Transactional(rollbackFor= {Exception.class})
 	public void updateUser(UserModel userModel) {
+		log.info("更新用户信息{}", JSON.toJSONString(userModel));
 		userDao.updateById(copy(userModel, UserEntity.class));
 	}
 	
