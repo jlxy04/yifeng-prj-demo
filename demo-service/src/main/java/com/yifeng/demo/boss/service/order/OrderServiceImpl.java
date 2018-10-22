@@ -31,6 +31,7 @@ public class OrderServiceImpl extends RapidService implements OrderService {
 	
 	@Override
 	public PageResult<OrderDetail> listOrderByPage(OrderQuery orderQuery, Pagination pagination) {
+		//分页查询
 		PageHelper.startPage(pagination);
 		Page<OrderDataDo> orderDataList = (Page<OrderDataDo>) orderDao.selectByPage(copy(orderQuery, com.yifeng.demo.boss.dal.order.query.OrderQuery.class));
 		return new PageResult<>(copyList(orderDataList, OrderDetail.class), orderDataList.getTotal());

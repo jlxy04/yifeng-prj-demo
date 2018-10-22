@@ -3,6 +3,14 @@
  */
 package com.yifeng.demo.boss.conf;
 
+import java.io.IOException;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.core.io.support.PropertiesLoaderUtils;
+
+import com.yifeng.demo.boss.util.ExceptionUtil;
+
 /**
  * 配置中心对应的配置类
  * @author Administrator
@@ -49,4 +57,8 @@ public class PropertyConfig {
 		PropertyConfig.ossUrl = ossUrl;
 	}
 	
+	@PostConstruct
+	public void initException() throws IOException {
+		ExceptionUtil.setProperties(PropertiesLoaderUtils.loadAllProperties("exception.properties"));
+	}
 }

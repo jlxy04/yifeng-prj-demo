@@ -11,6 +11,7 @@ import com.yifeng.demo.boss.api.user.query.UserQuery;
 import com.yifeng.demo.boss.api.user.service.UserService;
 import com.yifeng.demo.boss.dal.user.dao.UserDao;
 import com.yifeng.demo.boss.dal.user.entity.UserEntity;
+import com.yifeng.demo.boss.exception.UserException;
 
 import next.framework.mybatis.utils.ObjectId;
 import next.rapid.RapidService;
@@ -56,6 +57,10 @@ public class UserServiceImpl extends RapidService implements UserService {
 	@Override
 	@Transactional(rollbackFor= {Exception.class})
 	public void deleteUserById(String id) {
+		UserEntity userEntity = userDao.selectById(id);
+		if(userEntity == null) {
+			throw new UserException("100002");
+		}
 		userDao.deleteById(id);
 	}
 }
