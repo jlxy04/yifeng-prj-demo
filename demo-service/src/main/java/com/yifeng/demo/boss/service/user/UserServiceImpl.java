@@ -1,7 +1,5 @@
 package com.yifeng.demo.boss.service.user;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +14,7 @@ import com.yifeng.demo.boss.dal.user.entity.UserEntity;
 
 import next.framework.mybatis.utils.ObjectId;
 import next.rapid.RapidService;
+import next.rapid.page.PageResult;
 import next.rapid.page.Pagination;
 
 /**
@@ -30,10 +29,10 @@ public class UserServiceImpl extends RapidService implements UserService {
 	private UserDao userDao;
 	
 	@Override
-	public List<UserModel> listUserByPage(UserQuery userQuery, Pagination pagination) {
+	public PageResult<UserModel> listUserByPage(UserQuery userQuery, Pagination pagination) {
 		PageHelper.startPage(pagination);
 		Page<UserEntity> userList = (Page<UserEntity>) userDao.selectByPage(copy(userQuery, com.yifeng.demo.boss.dal.user.query.UserQuery.class));
-		return copyList(userList, UserModel.class);
+		return new PageResult<>(copyList(userList, UserModel.class), userList.getTotal());
 	}
 	
 	@Override
@@ -46,5 +45,17 @@ public class UserServiceImpl extends RapidService implements UserService {
 	public void createUser(UserModel userModel) {
 		userModel.setId(ObjectId.get().toString());
 		userDao.insert(copy(userModel, UserEntity.class));
+	}
+	
+	@Override
+	@Transactional(rollbackFor= {Exception.class})
+	public void updateUser(UserModel userModel) {
+		userDao.updateById(copy(userModel, UserEntity.class));
+	}
+	
+	@Override
+	@Transactional(rollbackFor= {Exception.class})
+	public void deleteUserById(String id) {
+		userDao.deleteById(id);
 	}
 }

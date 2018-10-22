@@ -3,11 +3,10 @@
  */
 package com.yifeng.demo.boss.api.order.service;
 
-import java.util.List;
-
 import com.yifeng.demo.boss.api.order.detail.OrderDetail;
 import com.yifeng.demo.boss.api.order.query.OrderQuery;
 
+import next.rapid.page.PageResult;
 import next.rapid.page.Pagination;
 
 /**
@@ -23,5 +22,5 @@ public interface OrderService {
 	 * @param pagination 分页条件
 	 * @return
 	 */
-	public List<OrderDetail> listOrderByPage(OrderQuery orderQuery, Pagination pagination);
+	public PageResult<OrderDetail> listOrderByPage(OrderQuery orderQuery, Pagination pagination);
 }

@@ -3,11 +3,10 @@
  */
 package com.yifeng.demo.boss.api.user.service;
 
-import java.util.List;
-
 import com.yifeng.demo.boss.api.user.model.UserModel;
 import com.yifeng.demo.boss.api.user.query.UserQuery;
 
+import next.rapid.page.PageResult;
 import next.rapid.page.Pagination;
 
 /**
@@ -23,7 +22,7 @@ public interface UserService {
 	 * @param pagination 分页条件
 	 * @return 返回结果用户列表
 	 */
-	public List<UserModel> listUserByPage(UserQuery userQuery, Pagination pagination);
+	public PageResult<UserModel> listUserByPage(UserQuery userQuery, Pagination pagination);
 	
 	/**
 	 * 根据用户ID查询单个用户信息
@@ -38,4 +37,16 @@ public interface UserService {
 	 * @return
 	 */
 	public void createUser(UserModel userModel);
+	
+	/**
+	 * 更新用户信息
+	 * @param userModel 用户信息
+	 */
+	public void updateUser(UserModel userModel);
+	
+	/**
+	 * 根据ID删除用户信息
+	 * @param id
+	 */
+	public void deleteUserById(String id);
 }
