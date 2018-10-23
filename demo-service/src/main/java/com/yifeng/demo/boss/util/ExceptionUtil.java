@@ -5,6 +5,8 @@ package com.yifeng.demo.boss.util;
 
 import java.util.Properties;
 
+import com.yifeng.demo.boss.exception.UserException;
+
 /**
  * 异常工具类
  * @author Administrator
@@ -25,5 +27,9 @@ public class ExceptionUtil {
 	
 	public static void setProperties(Properties properties) {
 		ExceptionUtil.properties = properties;
+	}
+	
+	public static void throwUserException(String errCode) {
+		throw new UserException(errCode, ExceptionUtil.getExceptionByCode(errCode));
 	}
 }

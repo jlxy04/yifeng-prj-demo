@@ -59,6 +59,6 @@ public class PropertyConfig {
 	
 	@PostConstruct
 	public void initException() throws IOException {
-		ExceptionUtil.setProperties(PropertiesLoaderUtils.loadAllProperties("exception.properties"));
+		ExceptionUtil.setProperties(PropertiesLoaderUtils.loadAllProperties("exception/exception.properties"));
 	}
 }

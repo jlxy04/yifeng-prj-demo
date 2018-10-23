@@ -3,8 +3,6 @@
  */
 package com.yifeng.demo.boss.exception;
 
-import com.yifeng.demo.boss.util.ExceptionUtil;
-
 import next.rapid.exception.BaseException;
 
 /**
@@ -20,7 +18,7 @@ public class UserException extends BaseException {
 		super();
 	}
 	
-	public UserException(String code) {
-		super(code, ExceptionUtil.getExceptionByCode(code), UserException.class);
+	public UserException(String code, String message) {
+		super(code, message, UserException.class);
 	}
 }

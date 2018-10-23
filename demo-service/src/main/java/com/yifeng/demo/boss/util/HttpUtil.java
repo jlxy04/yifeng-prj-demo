@@ -28,7 +28,8 @@ public class HttpUtil {
 	public static String sendPost(String reqUrl, String body) {
 		HttpURLConnection connection = null;
 		try {
-			URL url = new URL(reqUrl); // url地址
+			// url地址
+			URL url = new URL(reqUrl); 
 
 			connection = (HttpURLConnection) url.openConnection();
 			connection.setDoInput(true);
@@ -71,7 +72,8 @@ public class HttpUtil {
 	public static String sendGet(String reqUrl) {
 		HttpURLConnection connection = null;
 		try {
-			URL url = new URL(reqUrl); // url地址
+			// url地址
+			URL url = new URL(reqUrl); 
 
 			connection = (HttpURLConnection) url.openConnection();
 			connection.setDoInput(true);
